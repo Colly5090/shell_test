@@ -12,38 +12,34 @@ void exec_built_ins(char *args[])
 
 	if (args == NULL || args[0] == NULL)
 	{
-		perror("./shell: Error: Cd can't be NULL");
+		perror("./shell: Invalid");
 		return;
 	}
 	if (_strcmp(args[0], "cd") == 0)
 	{
-		if (!dir || _strcmp(dir, "~") == 0)
-			dir = getenv("HOME");
-		else if	(_strcmp(dir, "-") == 0)
+	if (!dir || _strcmp(dir, "~") == 0)
+		dir = getenv("HOME");
+	else if	(_strcmp(dir, "-") == 0){
+		if (oldpwd)
 		{
-			if (oldpwd)
-			{
-				dir = oldpwd;
-			}
-			else
-			{
-				write(1, "./shell: cd: OLDPWD not set\n", 28);
-				return;
-			}
+			dir = oldpwd;
 		}
-		dir = getenv("OLDPWD");
+		else
+		{
+			perror("./shell: Cant print");
+			return;
+		}
+	}
+		/*dir = getenv("OLDPWD");*/
 	if (!dir || chdir(dir) != 0)
-		perror("./shell: Error Cd not working");
+		perror("./shell: chdir");
 	else if (getcwd(cwd, sizeof(cwd)) != NULL)
 	{
-		/*printf("Current directory: %s\n", cwd);*/
 		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", cwd, 1);
-	} 
-	else
+	} else
 		perror("./shell: getcwd");
-	} 
-	else if (_strcmp(args[0], "pwd") == 0)
+	} else if (_strcmp(args[0], "pwd") == 0)
 	{
 		if (getcwd(cwd, sizeof(cwd)) != NULL)
 		{

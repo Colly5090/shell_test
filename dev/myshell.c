@@ -9,7 +9,7 @@ int main(int argc, char *argv[]);
 int main(int argc, char *argv[])
 {
 	char *input, **args, *path = NULL;
-	int is_builtin;
+	int is_builtin, x;
 	size_t length;
 
 	while (1)
@@ -41,16 +41,19 @@ int main(int argc, char *argv[])
 					path = getpath(args[0]);
 					exec_external(args, path);
 				}
-				if (path != NULL)
-					free(path);
-				else
-				{
-					perror("./shell: ");
-				}
+				/*if (path !=  NULL)*/
+					/*free(path);*/
+				/*else*/
+				/*{*/
+				/*	perror("./shell: check wrong");*/
+				/*}*/
+				for (x = 0; args[x] != NULL; x++)
+					free(args[x]);
 				free(args);
 			}
 		}
 		free(input);
 	}
+	/*free(input);*/
 	return (0);
 }
