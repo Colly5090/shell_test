@@ -13,8 +13,12 @@ char *read_input(void)
 	if (read_line == -1)
 	{
 		write(1, "\n", 1);
-		free(lineptr);
-		exit(EXIT_FAILURE);
+		/*return NULL;*/
+		if (lineptr != NULL) /*edited*/
+		{
+			free(lineptr);
+			exit(EXIT_FAILURE);
+		}
 	}
 	/*free(lineptr);*/
 	return (lineptr);

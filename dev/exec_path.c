@@ -14,6 +14,12 @@ char *getpath(char *inputs)
 	if (envar)
 	{
 		copyEnvar = strdup(envar);
+		if (copyEnvar == NULL) /* edited here */
+		{
+			perror("./shell: Memory allocation error");
+			free(copyEnvar);/* edited*/
+			exit(1);
+		}
 		inputlength = _strlen(inputs);
 		tokenpath = strtok(copyEnvar, ":");
 		while (tokenpath != NULL)
@@ -23,6 +29,7 @@ char *getpath(char *inputs)
 			if (pathfile == NULL)
 			{
 				perror("./shell: Memory allocation error");
+				free(copyEnvar);
 				exit(1);
 			}
 			strcpy(pathfile, tokenpath);
@@ -42,8 +49,8 @@ char *getpath(char *inputs)
 		}
 		free(copyEnvar);
 		if (stat(inputs, &buffer) == 0)
-			return (inputs);
-		return (NULL);
+			return strdup(inputs);
+		/*return (NULL);*/
 	}
 	return (NULL);
 }
