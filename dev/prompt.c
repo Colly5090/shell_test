@@ -6,5 +6,5 @@
 void prompt(void)
 {
 	if (isatty(STDIN_FILENO))
-		write(1, "CollinsShell# ", 14);
+		write(1, "#cisfun$ ", 9);
 }
