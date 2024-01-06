@@ -4,6 +4,7 @@
  * @inputs: command from user to search path
  * Return: nothing
 */
+char *getpath(char *inputs);
 char *getpath(char *inputs)
 {
 	char *envar, *copyEnvar, *tokenpath, *pathfile;
@@ -49,7 +50,7 @@ char *getpath(char *inputs)
 		}
 		free(copyEnvar);
 		if (stat(inputs, &buffer) == 0)
-			return strdup(inputs);
+			return (strdup(inputs));/*edited with ()*/
 		/*return (NULL);*/
 	}
 	return (NULL);

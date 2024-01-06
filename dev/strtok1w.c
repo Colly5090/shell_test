@@ -4,6 +4,7 @@
  * @input: input from users to be tokenized
  * Return: pointer to the new tokens
 */
+char **token_input(char *input);
 char **token_input(char *input)
 {
 	char **new_strings = NULL, *token;
@@ -30,7 +31,7 @@ char **token_input(char *input)
 		free(copy_lineptr);
 		/*perror("./shell: Memory Error");*/
 		/*exit(EXIT_FAILURE);*/
-		return NULL;
+		return (NULL);
 	}
 	token = _strtok(input, delim);
 	while (token != NULL)

@@ -1,38 +1,44 @@
 #include "main.h"
-
-char *_strtok(char *str, const char *sep) 
+/**
+ * _strtok - A function to break strings into tokens
+ * @str: string to be tokenized
+ * @sep: delimeter used for the tokenization
+ * Return: null pointer
+ */
+char *_strtok(char *str, const char *sep)
 {
-    static char *lastToken = NULL;
-    char *tokenStart;
+	static char *lastToken;
+	char *tokenStart;
 
-    if (str != NULL) {
-        lastToken = str;
-    } else {
-        if (lastToken == NULL) {
-            return NULL;
-        }
-    }
+	if (str != NULL)
+	{
+		lastToken = str;
+	}
+	else
+	{
+		if (lastToken == NULL)
+			return (NULL);
+	}
 
-    lastToken += strspn(lastToken, sep);
+	lastToken += strspn(lastToken, sep);
 
-    if (*lastToken == '\0') {
-        lastToken = NULL;
-        return NULL;
-    }
+	if (*lastToken == '\0')
+	{
+		lastToken = NULL;
+		return (NULL);
+	}
+	tokenStart = lastToken;
 
-    tokenStart = lastToken;
+	lastToken += strcspn(lastToken, sep);
 
-    
-    lastToken += strcspn(lastToken, sep);
-
-    
-    if (*lastToken != '\0') {
-        *lastToken = '\0';
-        lastToken++;
-    } else {
-        
-        lastToken = NULL;
-    }
-
-    return tokenStart;
+	if (*lastToken != '\0')
+	{
+		*lastToken = '\0';
+		lastToken++;
+	}
+	else
+	{
+		lastToken = NULL;
+	}
+	return (tokenStart);
 }

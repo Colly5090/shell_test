@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 					exec_external(args, path);
 				}
 				/*if (path !=  NULL)*/
-					/*free(path)*/;
+					/*free(path);*/
 				/*else*/
 				/*{*/
 				/*	perror("./shell: check wrong");*/
@@ -56,6 +56,6 @@ int main(int argc, char *argv[])
 		}
 		free(input);
 	}
-       	/*free(input);*/
+	/*free(input);*/
 	return (0);
 }

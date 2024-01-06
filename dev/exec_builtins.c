@@ -4,6 +4,7 @@
  * @args: array of commands to be executed
  * Return: nothing
 */
+void exec_built_ins(char *args[]);
 void exec_built_ins(char *args[])
 {
 	char cwd[1024];
@@ -39,10 +40,10 @@ void exec_built_ins(char *args[])
 		/*printf("Current directory: %s\n", cwd);*/
 		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", cwd, 1);
-	} 
+	}
 	else
 		perror("./shell: getcwd");
-	} 
+	}
 	else if (_strcmp(args[0], "pwd") == 0)
 	{
 		if (getcwd(cwd, sizeof(cwd)) != NULL)
