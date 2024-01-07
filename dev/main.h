@@ -16,7 +16,9 @@
 
 /*struct stat buffer;*/
 extern char **environ;
-
+char *_strcpy(char *dest, char *src);
+unsigned int _strspn(char *string, const char *subset);
+char *_strchr(char *string, char c);
 char **token_input(char *input);
 char *_strtok(char *str, const char *sep);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
