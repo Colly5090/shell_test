@@ -5,6 +5,7 @@
  * @s2: second string
  * Return: nothing
 */
+int _strcmp(const char *s1, const char *s2);
 int _strcmp(const char *s1, const char *s2)
 {
 	int x;
@@ -75,7 +76,7 @@ char *_strcpy(char *dest, char *src)
 		i++;
 		dest[i] = src[i];
 	} while (src[i] != '\0');
-	
+
 	return (dest);
 }
 
