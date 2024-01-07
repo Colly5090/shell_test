@@ -17,14 +17,14 @@ void separator(const char *input)
 		return;
 	}
 
-	tokens = strtok(inputCopy, ";");
+	tokens = _strtok(inputCopy, ";");
 	while (tokens != NULL)
 	{
 		status_code = system(tokens);
 
 		if (status_code == -1)
 			perror("./shell: bad command");
-	       tokens = strtok(NULL, ";");
+	       tokens = _strtok(NULL, ";");
 	}
 	free(inputCopy);
 }

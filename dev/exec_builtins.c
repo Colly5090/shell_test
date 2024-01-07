@@ -48,7 +48,7 @@ void exec_built_ins(char *args[])
 	{
 		if (getcwd(cwd, sizeof(cwd)) != NULL)
 		{
-			write(1, cwd, strlen(cwd));
+			write(1, cwd, _strlen(cwd));
 			write(1, "\n", 1);
 		} else
 			perror("./shell: getcwd");
@@ -57,7 +57,7 @@ void exec_built_ins(char *args[])
 	else
 	{
 		write(1, "./shell: Invalid", 16);
-		write(1, args[0], strlen(args[0]));
+		write(1, args[0], _strlen(args[0]));
 		write(1, "\n", 1);
 	}
 }

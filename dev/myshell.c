@@ -21,10 +21,10 @@ int main(int argc, char *argv[])
 			continue;
 		comment(input);
 
-		length = strlen(input);
+		length = _strlen(input);
 		if (length > 0 && input[length - 1] == '\n')
 			input[length - 1] = '\0';
-		if (strchr(input, ';') != NULL)
+		if (_strchr(input, ';') != NULL)
 			separator(input);
 		else
 		{

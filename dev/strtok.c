@@ -20,7 +20,7 @@ char *_strtok(char *str, const char *sep)
 			return (NULL);
 	}
 
-	lastToken += strspn(lastToken, sep);
+	lastToken += _strspn(lastToken, sep);/*here*/
 
 	if (*lastToken == '\0')
 	{
