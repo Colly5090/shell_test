@@ -12,7 +12,7 @@ char *read_input(void)
 	read_line = _getline(&lineptr, &n, stdin);
 	if (read_line == -1)
 	{
-		write(1, "\n", 1);
+		/*write(1, "\n", 1);*/
 		/*return NULL;*/
 		if (lineptr != NULL) /*edited*/
 		{

@@ -1,0 +1,24 @@
+#include "main.h"
+
+void operators(const char *input)
+{
+	size_t inputlength = _strlen(input);
+	char *inputCopy = strdup(input);
+	size_t i, start, length;
+	int result;
+	char *command;
+
+	if (inputCopy == NULL)
+	{
+		perror("./shell: strup");
+		exit(EXIT_FAILURE);
+	}
+
+	for (i = 0; i < iputlength; ++i)
+	{
+		while (i < inputlength && strchr(' ', input[i]) != NULL)
+			++i;
+		if (i < inputlength)
+		{
+			start = i;
+			while (i < inputlength && strchr(' '

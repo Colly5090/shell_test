@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
 	int is_builtin, x;
 	size_t length;
 
+	ncurses();
+
 	while (1)
 	{
 		(void) argc, (void) argv;
@@ -54,8 +56,11 @@ int main(int argc, char *argv[])
 					free(path);
 			}
 		}
+		move(getcury(stdscr) + 1, 0);
+
 		free(input);
 	}
+	end_ncurses();
 	/*free(input);*/
 	return (0);
 }
