@@ -1,0 +1,14 @@
+#include "main.h"
+
+void ncurses(void)
+{
+	initscr();
+	raw();
+	keypad(stdscr, TRUE);
+	noecho();
+}
+
+void end_ncurses(void)
+{
+	endwin();
+}

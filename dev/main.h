@@ -13,9 +13,12 @@
 #include <limits.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <ncurses.h>
 
 /*struct stat buffer;*/
 extern char **environ;
+void ncurses(void);
+void end_ncurses(void);
 char *_strcpy(char *dest, char *src);
 unsigned int _strspn(char *string, const char *subset);
 char *_strchr(char *string, char c);
